@@ -1,6 +1,7 @@
 \documentclass[12pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usecolortheme{default}
+\usepackage{graphicx}
 % \setbeamercovered{transparent}
 
 
@@ -34,22 +35,31 @@
   \begin{columns}
 
     \begin{column}[t]{5cm}
-      \begin{enumerate}
-      \item<1-> Alle Menschen sind sterblich \\
-      \item<1-> Sokrates ist ein Mann\\
-      \item<2-> Also: Sokrates ist sterblich
+      \begin{enumerate}[<+->]
+      \item Alle Menschen sind sterblich. \\
+      \item Sokrates ist ein Mensch.\\
+      \item Also: Sokrates ist sterblich.
       \end{enumerate}
     \end{column}
 
     \begin{column}[t]{5cm}
-      \begin{enumerate}
-      \item<3-> $P$
-      \item<3-> $Q$
-      \item<3-> Also: $R$
+      \begin{enumerate}[<+->]
+      \item $P$
+      \item $Q$
+      \item Also: $R$
+
       \end{enumerate}
+
+      \pause
+
+      \begin{center}
+        \includegraphics[height=2cm]{scepticdog.png}
+      \end{center}
     \end{column}
 
   \end{columns}
+
+\pause
 
   \vspace{10 mm}
   \begin{itemize}
@@ -58,31 +68,38 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Stattdessen: Formalisierung II}
+\begin{frame}{Formalisierung}
   
   \begin{columns}
 
     \begin{column}[t]{5cm}
-      \begin{enumerate}
-      \item<1-> Alle Menschen sind sterblich.
-      \item<1-> Sokrates ist ein Mensch.
-      \item<1-> Also: Sokrates ist sterblich.
+      \begin{enumerate}[<+->]
+      \item Alle Menschen sind sterblich.
+      \item Sokrates ist ein Mensch.
+      \item Also: Sokrates ist sterblich.
       \end{enumerate}
     \end{column}
 
     \begin{column}[t]{5cm}
-      \begin{enumerate}
-      \item<2-> $\forall x (Mx \to Sx)$.
-      \item<3-> $Ms$.
-      \item<4-> Also: $Ss$.
+      \begin{enumerate}[<+->]
+      \item $\forall x (Mx \to Sx)$
+      \item $Ms$
+      \item Also: $Ss$
+
       \end{enumerate}
+      \pause
+      \begin{center}
+         \includegraphics[height=2cm]{cleverdog.png}
+
+      \end{center}
+
     \end{column}
 
   \end{columns}
 
 \end{frame}
 
-\begin{frame}{Formalisierung III}
+\begin{frame}{Formalisierung}
   \begin{itemize}
   \item<1-> Es gibt genau einen Gott.
   \item<2-> gdw. Es gibt ein Ding, das Gott ist, und alle anderen
@@ -133,7 +150,7 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Grammatik II: Beispiele}
+\begin{frame}{Grammatik: Beispiele}
   Seien $a,b,c$ Konstanten und $P,Q$ Prädikatensymbole. Was wird
   intuitiv mit diesen Formeln ausgedrückt?
 
@@ -147,7 +164,7 @@
 
 \end{frame}
 
-\begin{frame}{Grammatik III: Beispiele}
+\begin{frame}{Grammatik: Beispiele}
   Seien $x, y, z$ Variablen, $a,b,c$ Konstanten und $P,Q$
   Prädikatensymbole. Was wird intuitiv mit diesen Formeln ausgedrückt?
 
@@ -181,7 +198,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Semantik II}
+\begin{frame}{Semantik}
   \begin{itemize}[<+->]
   \item Wann würden wir intuitiv $\exists x Px$ als wahr bezeichnen?
   \item Wenn \emph{irgendein} Ding $P$ erfüllt.
@@ -190,7 +207,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Semantik III - Interpretation}
+\begin{frame}{Semantik: Interpretation}
   Eine Interpretation $I$ besteht aus einem Tupel
   $\langle D,v\rangle$.
   \begin{itemize}[<+->]
@@ -208,7 +225,7 @@
 
 \end{frame}
 
-\begin{frame}{Semantik IV: Wahrheit in einer Interpretation}
+\begin{frame}{Semantik: Wahrheit in einer Interpretation}
   \begin{itemize}[<+->]
   \item $v(Pc_1,...c_n) = 1$ gdw.
     $\langle v(c_1),...,v(c_n)\rangle \in v(P)$, sonst 0.
@@ -256,7 +273,7 @@
 
 % \end{frame}
 
-\begin{frame}{Semantik VI: Interpretation Beispiel}
+\begin{frame}{Semantik: Interpretation Beispiel}
 
   Konstanten: $a, b, c$. Prädikatensymbole: $P, Q$. \\
   Sei $I$ gegeben durch: $D = \{\partial_a, \partial_b, \partial_c\}$,\\
@@ -380,7 +397,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Semantik: Interpretationen}
+\begin{frame}{Semantik: Interpretation}
   Die Interpretation $I$ wird erweitert, so dass sie aus einem 4-tupel
   $\langle D, W, R, v \rangle$ besteht, wobei \pause
   \begin{itemize}[<+->]
@@ -399,7 +416,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Semantik II}
+\begin{frame}{Semantik}
   Eine Formel ist nun wahr oder falsch in einer Interpretation
   \emph{an einer Welt}.  Also
   \begin{itemize}[<+->]
@@ -451,7 +468,7 @@
 
 \end{frame}
 
-\begin{frame}{Tableaux-Regeln}
+\begin{frame}{Tableaux: Regeln}
 
   Alle Regeln der klassischen Prädikatenlogik, relativ zu einer Welt,
   und die Regeln der modalen Aussagenlogik.
@@ -524,9 +541,10 @@
 
 \begin{frame}{Tableaux: Beispiele}
 
-$K$ ist eine Logik ohne Beschränkung der Relation $R$ der Interpretationen.
+  $K$ ist eine Logik ohne Beschränkung der Relation $R$ der
+  Interpretationen.
   \begin{enumerate}[<+->]
-  \item   $\vdash_K \forall x \Box Px \to \Box \forall x Px$? 
+  \item $\vdash_K \forall x \Box Px \to \Box \forall x Px$?
   \item $\vdash_K \Box \forall x Px \to \forall x \Box Px$?
   \item $\vdash_K \exists x \Box Px \to \Box \exists x Px$?
   \item $\vdash_K \Box \exists x Px \to \exists x \Box Px$?
@@ -543,14 +561,44 @@ $K$ ist eine Logik ohne Beschränkung der Relation $R$ der Interpretationen.
 \begin{frame}{Barcan-Formel}
 
   \begin{itemize}[<+->]
-  \item Constant Domain Prädikatenlogik kommt mit einem heftigen Commitment:
+  \item Constant Domain Prädikatenlogik kommt mit einem heftigen
+    Commitment:
     \begin{center}
-       Barcan Formula (BF): $\forall x \Box Px \to \Box \forall x Px$
+      Barcan Formula (BF): $\forall x \Box Px \to \Box \forall x Px$
     \end{center}
   \item BF ist Theorem von K (und jeder stärkeren Logik).
-  \item Wie lässt sich das interpretieren? Nehme an, das Antezedens von BF gilt an $w_0$: Alle Dinge an $w_0$ haben die Eigenschaft $P$ notwendigerweise. Dann gilt nach BF auch das Konsequenz: An allen Welten gilt $\forall x Px$. 
-  \end{itemize}
+  \item Wie lässt sich das interpretieren? Nehme an, das Antezedens
+    von BF gilt an $w_0$: Alle Dinge an $w_0$ haben die Eigenschaft
+    $P$ an allen (zugänglichen) Welten. Dann gilt nach BF auch das
+    Konsequenz: An allen Welten gilt $\forall x Px$. D.h. an jeder
+    Welt gilt $Px$ für alle \emph{dort} existierenden Dinge.
+  \item Ist das plausibel? Was ist, wenn an einer Welt $w_1$ andere
+    Dinge existieren als an Welt $w_0$? Dann dürfte
+    $\forall x \Box Px$ an $w_0$ nichts über diese Dinge
+    implizieren. \end{itemize}
   
+\end{frame}
+
+\begin{frame}{Barcan-Formel}
+
+  \begin{itemize}
+  \item Äquivalent zur Barcan Formula: 
+    \begin{center}
+      BF*: $\Diamond \exists x Px \to \exists x \Diamond Px$ 
+    \end{center}
+  \end{itemize}
+
+  
+\end{frame}
+
+\begin{frame}
+  Literatur: 
+  \begin{itemize}
+  \item Fitting, Melvin und Mendelsohn, Richard L. (1998). First Order Modal Logic. Kluwer Academic Publishers.
+  \item Garson, James (Spring 2016 Edition). Modal Logic. The Stanford Encyclopedia of Philosophy.
+  \item Priest, Graham (2001). Introduction to Non-Classical Logic. Cambridge University Press.
+  \end{itemize}
+
 \end{frame}
 
 \end{document}
