@@ -1,6 +1,6 @@
 \documentclass[12pt]{beamer}
 \usepackage[utf8]{inputenc}
-\usecolortheme{default}
+\usecolortheme{dove}
 % \setbeamercovered{transparent}
 
 
@@ -9,7 +9,7 @@
 
 
 
-\title[Modale Prädikatenlogik]{Philosophische Modale Prädikatenlogik}
+\title[Philosophische modale Prädikatenlogik]{Modale Prädikatenlogik}
 \subtitle{Eine sehr kurze Einführung}
 \author{Conrad Friedrich}
 \institute[Uni Köln]{Universität zu Köln}
@@ -27,7 +27,8 @@
 
 \begin{frame}
   \Huge Prädikatenlogik \\
-  \pause \large ``Baby Logic" Version
+\pause
+\large ``Baby Logic" Version
 \end{frame}
 
 \begin{frame}{Formalisierung}
@@ -109,11 +110,10 @@
     \begin{itemize}
     \item $\neg, \to, \land, \lor, \leftrightarrow$
     \end{itemize}
-  \item<5-> Quantorsymbole
+  \item<5-> Quantoren
     \begin{itemize}
     \item $\forall, \exists$
     \end{itemize}
-  \item<6-> (Funktionssymbole, Hilfszeichen...)
   \end{itemize}
 \end{frame}
 
@@ -222,37 +222,33 @@
 
   \begin{itemize}[<+->]
     
-  \item $v(\forall xA) = 1$ gdw. \textbf{jedes} Objekt des
-    Gegenstandsbereiches $A$ erfüllt, sonst 0.
-  \item $v(\exists xA) = 1$ gdw. \textbf{mindestens ein} Objekt des
-    Gegenstandsbereiches $A$ erfüllt, sonst 0.
-    \begin{itemize}
-    \item Eine Formel $A$ gilt in $I$ gdw. $v(I) = 1$.
-    \item (Formal unterbestimmt. Was heißt `erfüllen'?)
-    \end{itemize}
-    % \item $v(\forall xA) = 1$ gdw. \textbf{für alle}
-    %   $\partial \in D$
-    %   gilt: $v(A_x(c_\partial)) = 1$, sonst 0.
-    % \item $v(\exists xA) = 1$ gdw. \textbf{für mindestens ein}
-    %   $\partial \in D$ gilt: $v(A_x(c_\partial)) = 1$, sonst 0.
+\item $v(\forall xA) = 1$ gdw. \textbf{jedes} Objekt des Gegenstandsbereiches $A$ erfüllt, sonst 0.
+\item $v(\exists xA) = 1$ gdw. \textbf{mindestens} ein Objekt des Gegenstandsbereiches $A$ erfüllt, sonst 0.
+  \begin{itemize}
+  \item 
+  \end{itemize}
+  % \item $v(\forall xA) = 1$ gdw. \textbf{für alle} $\partial \in D$
+  %   gilt: $v(A_x(c_\partial)) = 1$, sonst 0.
+  % \item $v(\exists xA) = 1$ gdw. \textbf{für mindestens ein}
+  %   $\partial \in D$ gilt: $v(A_x(c_\partial)) = 1$, sonst 0.
 
   \end{itemize}
 
 \end{frame}
 
 % \begin{frame}{Semantik V: Wahrheit in einer Interpretation II}
-%   \begin{block}{Notation} Sei $\partial \in D$ und $c_\partial$ eine
-%     Konstante, sodass $v(c_\partial) = \partial$.  Dann ist
-%     $A_x(c_\partial)$ die Formel, die wir erhalten, wenn wir alle
-%     Vorkommnisse von $x$ in $A$ durch $c_\partial$ ersetzen.
-%     \\
-%     \pause
-%     \begin{itemize}
-%     \item Beispiel: $A$ sei $Px \land Qy$. $A_x(c_\partial)$ ist
-%       dann $Pc_\partial \land Qy$.
-%     \end{itemize}
-%   \end{block}
-%   \pause
+  % \begin{block}{Notation} Sei $\partial \in D$ und $c_\partial$ eine
+  %   Konstante, sodass $v(c_\partial) = \partial$.  Dann ist
+  %   $A_x(c_\partial)$ die Formel, die wir erhalten, wenn wir alle
+  %   Vorkommnisse von $x$ in $A$ durch $c_\partial$ ersetzen.
+  %   \\
+  %   \pause
+  %   \begin{itemize}
+  %   \item Beispiel: $A$ sei $Px \land Qy$. $A_x(c_\partial)$ ist dann
+  %     $Pc_\partial \land Qy$.
+  %   \end{itemize}
+  % \end{block}
+  % \pause
 
 % \end{frame}
 
@@ -276,179 +272,66 @@
 \end{frame}
 
 \begin{frame}{Tableaux-Regeln}
-
-\begin{block}{Notation}
-  $A_x(c)$ ist die Formel, die wir erhalten, wenn wir alle freien
-  Vorkommnisse von $x$ in $A$ durch $c$ ersetzen.
-\end{block}
-\pause
-\begin{columns}
-
-  \begin{column}[t]{.25 \linewidth}
-    \begin{center}
-      $\forall x A$ \\
-      \prule\\
-      $A_x(a)$
-    \end{center}
-    $a$ ist eine Konstante, die schon vorkam.
-  \end{column}
-  \pause
-  \begin{column}[t]{.25 \linewidth}
-    \begin{center}
-      $\exists x A$ \\
-      \prule\\
-      $A_x(c)$
-    \end{center}
-    $c$ ist eine neue Konstante.
-  \end{column}
-  \pause
-  \begin{column}[t]{.25 \linewidth}
-    \begin{center}
-      $\neg \exists x A$\\
-      \prule\\
-      $\forall x \neg A$\\
-    \end{center}
-  \end{column}
-  \pause
-  \begin{column}[t]{.25 \linewidth}
-    \begin{center}
-      $\neg \forall x A$ \\
-      \prule\\
-      $\exists x \neg A$
-    \end{center}
-  \end{column}
-\end{columns}
-
-\vspace{1em}
-\begin{columns}
-
-  \pause
-
-  \begin{column}[t]{.5 \linewidth}
-    \begin{itemize}[<+->]
-    \item $Pc \vdash \exists x Px$?
-    \end{itemize}
-  \end{column}
-
-  \begin{column}[t]{.5 \linewidth}
-    \begin{itemize}[<+->]
-    \item $\forall x \neg Px \vdash \neg \exists x Px$?
-    \item $\exists x \neg Px \vdash \neg \forall x Px$?
-    \end{itemize}
-
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-\begin{frame}
-  \Huge Modale Prädikatenlogik\\
-  \large Constant Domain
-\end{frame}
-
-\begin{frame}{Vokabular und Grammatik}
-  \begin{block}{Vokabular}
-    Zum Vokabular werden $\Box$ und $\Diamond$ hinzugefügt.
-  \end{block}
-
-  \pause
-  \begin{block}{Grammatik}
-    Wir erweitern die Grammatik der Prädikatenlogik, so dass: \pause
-    \begin{itemize}[<+->]
-    \item Wenn $A$ eine Formel ist, dann ist auch $\Box A$ eine
-      Formel.
-    \item Wenn $A$ eine Formel ist, dann ist auch $\Diamond A$ eine
-      Formel.
-      \begin{itemize}
-      \item $\forall x \Box (Px \land Qx) \to \Box \forall x Px$
-      \item
-        $\Box \Diamond \exists x Px \to \Box \exists x \Diamond (Px
-        \lor Qx)$
-      \end{itemize}
-    \item Restliche Grammatik wie in der klassischen Prädikatenlogik.
-    \end{itemize}
-  \end{block}
-
-\end{frame}
-
-\begin{frame}{Semantik: Intuitiv}
-  Wir wollen die Logik so erweitern, dass: \pause
-  \begin{itemize}[<+->]
-  \item Ein Gegenstand in einer Situation eine Eigenschaft haben kann,
-    aber an einer anderen Welt nicht.
-  \item $v(Pa) = 1$ an $w_0$, aber $v(Pb) = 0$ an $w_1$.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Semantik: Interpretationen}
-  Die Interpretation $I$ wird erweitert, so dass sie aus einem 4-tupel
-  $\langle D, W, R, v \rangle$ besteht, wobei \pause
-  \begin{itemize}[<+->]
-  \item $D$ wie in der klassischen Prädikatenlogik der nicht-leere
-    Gegenstandsbereich ist,
-  \item $W$ wie in der modalen Aussagenlogik eine Menge möglicher
-    Welten ist,
-  \item $R$ wie in der modalen Aussagenlogik eine Relation auf $W$ ist
-    (d.h. $R \subseteq W \times W$),
-  \item $v$ eine Funktion ist, so dass
-    \begin{itemize}
-    \item Wenn $c$ eine Konstante ist, dann ist $v(c) \in D$.
-    \item Wenn $P$ ein $n$-stelliges Prädikatensymbol ist und
-      $w \in W$, dann ist $v_w(P) \subseteq D^n$.
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Semantik II}
-  Eine Formel ist nun wahr oder falsch in einer Interpretation
-  \emph{an einer Welt}.  Also
-  \begin{itemize}[<+->]
-  \item $v_\mathbf{w}(Pc_1,...c_n) = 1$ gdw.
-    $\langle v(c_1),...,v(c_n)\rangle \in v_\mathbf{w}(P)$, sonst 0.
-  \item Ganz analog mit nicht atomaren Formeln:
-    \begin{itemize}
-    \item $v_w(\neg A) = 1$ gdw. $v_w(A) = 0$.
-    \item $v_w(A \land B) = 1$ gdw. $v_w(A) = 1$ und $v_w(B) = 1$,
-      sonst 0.
-    \item usw.
-    \end{itemize}
-  \item $v_w(\Box A) = 1$ gdw. \textbf{für alle} $w' \in W$ mit $wRw'$
-    gilt: $v_{w'}(A) = 1$.
-  \item $v_w(\Diamond A) = 1$ gdw. \textbf{für mindestens ein}
-    $w' \in W$ mit $wRw'$ gilt: $v_{w'}(A) = 1$.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Semantik: Beispiel}
-  Sei eine Interpretation $I$ gegeben durch: \pause
-  \begin{itemize}[<+->]
-  \item $D = \{\partial_a, \partial_b, \partial_c\}$
-  \item $W = \{w_0, w_1\}$
-  \item
-    $R = \{\langle w_0, w_0\rangle ,\langle w_0, w_1 \rangle , \langle
-    w_1, w_1 \rangle \}$
-  \item $v(a) = \partial_a$ usw., $v_{0}(P) = $
-  \end{itemize}
-  \pause Welche Formeln gelten an der jeweiligen Welt?
   \begin{columns}
-    \begin{column}[t]{.5\linewidth}
 
-      \begin{itemize}[<+->]
-      \item $\Box Pa$ an $w_1$
-      \item $\exists x \Box Px$, $w_0$
-      \item $\Box \exists x Px$, $w_0$
-      \end{itemize}
-
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\forall x A$ \\
+        \prule\\
+        $A_x(a)$
+      \end{center}
+      $a$ ist eine Konstante, die schon vorkam.
     \end{column}
-
-    \begin{column}[t]{.5\linewidth}
-      \begin{itemize}[<+->]
-      \item $\forall x \Diamond Px$, $w_0$
-      \item $\Diamond \forall x Px$, $w_0$
-      \end{itemize}
+    \pause
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\exists x A$ \\
+        \prule\\
+        $A_x(c)$
+      \end{center}
+      $c$ ist eine neue Konstante.
+    \end{column}
+    \pause
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\neg \exists x A$\\
+        \prule\\
+        $\forall x \neg A$\\
+      \end{center}
+    \end{column}
+    \pause
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\neg \forall x A$ \\
+        \prule\\
+        $\exists x \neg A$
+      \end{center}
     \end{column}
   \end{columns}
 
+  \vspace{1em}
+  \begin{columns}
+
+    \pause
+
+    \begin{column}[t]{.5 \linewidth}
+      \begin{itemize}[<+->]
+      \item $Pc \vdash \exists x Px$?
+      \end{itemize}
+    \end{column}
+
+    \begin{column}[t]{.5 \linewidth}
+      \begin{itemize}[<+->]
+      \item $\forall x \neg Px \vdash \neg \exists x Px$?
+      \item $\exists x \neg Px \vdash \neg \forall x Px$?
+      \end{itemize}
+
+      \end{column}
+  \end{columns}
+
 \end{frame}
+
+
+
 
 \end{document}
