@@ -11,6 +11,8 @@
 *.cb
 *.cb2
 *.xcf
+*.tex#
+*.tex~
 
 ## Intermediate documents:
 *.dvi
