@@ -451,4 +451,106 @@
 
 \end{frame}
 
+\begin{frame}{Tableaux-Regeln}
+
+  Alle Regeln der klassischen Prädikatenlogik, relativ zu einer Welt,
+  und die Regeln der modalen Aussagenlogik.
+
+  \pause
+
+  \begin{columns}
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\forall x A, i$ \\
+        \prule\\
+        $A_x(a), i$
+      \end{center}
+      ($a$ kam schon vor.)
+    \end{column}
+    
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\exists x A, i$ \\
+        \prule\\
+        $A_x(c), i$
+      \end{center}
+      ($c$ ist eine neue Konstante.)
+    \end{column}
+    
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\neg \exists x A, i$\\
+        \prule\\
+        $\forall x \neg A, i$\\
+      \end{center}
+    \end{column}
+    
+    \begin{column}[t]{.25 \linewidth}
+      \begin{center}
+        $\neg \forall x A, i$ \\
+        \prule\\
+        $\exists x \neg A, i$
+      \end{center}
+    \end{column}
+  \end{columns}
+
+  \pause
+  
+  \begin{columns}
+    \begin{column}[t]{.5 \linewidth}
+      \begin{center}
+        $\Box A, i$ \\
+        $irj$ \\
+        \prule \\
+        $A, j$
+      \end{center}
+    \end{column}
+    \begin{column}[t]{.5 \linewidth}
+      \begin{center}
+        $\Diamond A, i$\\
+        \prule \\
+        $irj$ \\
+        $A,j$ \\
+        ($j$ ist neu.)
+      \end{center}
+
+    \end{column}
+  \end{columns}
+
+  
+\end{frame}
+
+
+
+\begin{frame}{Tableaux: Beispiele}
+
+$K$ ist eine Logik ohne Beschränkung der Relation $R$ der Interpretationen.
+  \begin{enumerate}[<+->]
+  \item   $\vdash_K \forall x \Box Px \to \Box \forall x Px$? 
+  \item $\vdash_K \Box \forall x Px \to \forall x \Box Px$?
+  \item $\vdash_K \exists x \Box Px \to \Box \exists x Px$?
+  \item $\vdash_K \Box \exists x Px \to \exists x \Box Px$?
+  \end{enumerate}
+
+
+\end{frame}
+
+
+\begin{frame}
+  \Huge Philosophische Probleme und Fragen
+\end{frame}
+
+\begin{frame}{Barcan-Formel}
+
+  \begin{itemize}[<+->]
+  \item Constant Domain Prädikatenlogik kommt mit einem heftigen Commitment:
+    \begin{center}
+       Barcan Formula (BF): $\forall x \Box Px \to \Box \forall x Px$
+    \end{center}
+  \item BF ist Theorem von K (und jeder stärkeren Logik).
+  \item Wie lässt sich das interpretieren? Nehme an, das Antezedens von BF gilt an $w_0$: Alle Dinge an $w_0$ haben die Eigenschaft $P$ notwendigerweise. Dann gilt nach BF auch das Konsequenz: An allen Welten gilt $\forall x Px$. 
+  \end{itemize}
+  
+\end{frame}
+
 \end{document}
