@@ -281,7 +281,7 @@
   Eine Interpretation $I$ besteht aus einem Tupel
   $\langle D,v\rangle$.
   \begin{itemize}[<+->]
-  \item $D$ ist der (nicht-leere) Gegenstandsbereich, über die
+  \item $D$ ist der (nicht-leere) Gegenstandsbereich, über den
     quantifiziert wird.
   
   \item $v$ ist eine Funktion, so dass
@@ -318,7 +318,7 @@
   \item $v(\exists xA) = 1$ gdw. \textbf{mindestens ein} Objekt des
     Gegenstandsbereiches $A$ erfüllt, sonst 0.
     \begin{itemize}
-    \item Eine Formel $A$ gilt in $I$ gdw. $v(I) = 1$.
+    \item Eine Formel $A$ gilt in $I$ gdw. $v(A) = 1$.
     \item (Formal unterbestimmt. Was heißt `erfüllen'?)
     \end{itemize}
     % \item $v(\forall xA) = 1$ gdw. \textbf{für alle}
@@ -411,7 +411,7 @@
         \prule\\
         $A_x(a), i$
       \end{center}
-      ($a$ kam schon vor.)
+      ($a$ kam schon vor oder ist neu.)
     \end{column}
     
     \begin{column}[t]{.25 \linewidth}
@@ -495,10 +495,10 @@
   Die Interpretation $I$ wird erweitert, so dass sie aus einem 4-tupel
   $\langle D, W, R, v \rangle$ besteht, wobei \pause
   \begin{itemize}[<+->]
-  \item $D$ wie in der klassischen Prädikatenlogik der nicht-leere
+  \item $D$ wie in der klassischen Prädikatenlogik ein nicht-leerer
     Gegenstandsbereich ist,
-  \item $W$ wie in der modalen Aussagenlogik eine Menge möglicher
-    Welten ist,
+  \item $W$ wie in der modalen Aussagenlogik eine nicht-leere Menge
+    möglicher Welten ist,
   \item $R$ wie in der modalen Aussagenlogik eine Relation auf $W$ ist
     (d.h. $R \subseteq W \times W$),
   \item $v$ eine Funktion ist, so dass
@@ -617,18 +617,16 @@
     auf \emph{dieser} Welt ist es unmöglich, ein Perpetuum Mobile zu
     sein. Formalisiert: $\forall x \Box \neg Px$.
   \item An anderen Welten soll es ruhig Dinge geben können, die ein
-    Perpettum Mobile sind.
+    Perpetuum Mobile sind.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Reverse Barcan Formula}
+\begin{frame}{Barcan Formula}
   \begin{itemize}[<+->]
-  \item Aber dann beißt uns die Reverse Barcan Formula:
+  \item Aber dann beißt uns die Barcan Formula:
     \begin{center}
-      Reverse Barcan Formula (RBF):
-      $\forall x \Box A \to \Box \forall x A$.
+      BF: $\forall x \Box A \to \Box \forall x A$.
     \end{center}
-  \item RBF ist \emph{auch} ein Theorem von K.
   \item D.h. sobald wir behaupten dass alle Dinge in dieser Welt
     notwendigerweise kein Perpetuum Mobile sind, folgt, dass es an
     \emph{keiner} möglichen Welt ein Perpetuum Mobile gibt. Aber das
@@ -659,7 +657,7 @@
   \end{enumerate}
 \end{frame}
 \begin{frame}{Barcan Formula: Responses}
-  Um Constant Domain zu verteidigen könnte auch sagen:
+  Um Constant Domain zu verteidigen könnte man auch sagen:
   \begin{enumerate}[<+->]
   \item[2.] Unser intuitives Verständnis der Quantoren ist
     falsch. Bisher $\exists x A$ als ``es existiert ein x, sodass A''
@@ -669,10 +667,10 @@
     plausibel, weil die Quantoren so gelesen werden, dass sie alle
     irgendwo möglichen Dinge miteinschließen.
     \begin{itemize}[<+->]
-    \item Ja gz, das ist 1. derbe kontraintuitiv und against common
-      sense und praxis, das man sehr guten independent reason braucht
-      dafür, man stipuliert die Intuition einfach als falsch und
-      2. Wie willst Du dann Existenz auszeichnen? HÄ?
+    \item Allerdings braucht man sehr gute unabhängige Gründe, um so
+      ein kontraintuitives Resultat für eine philosophische Theorie
+      plausibel zu machen. Das heißt aber nicht, dass es die nicht
+      geben kann! (Vergleiche: Es gibt kein Bier mehr!)
     \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -683,27 +681,50 @@
   \begin{itemize}[<+->]
   \item Was heißt das?
   \item Semantik: Interpretation $I$ wie vorher 4-Tupel
-    $\langle D, W, R, v \rangle$, nur $v$ wird erweitert so dass
+    $\langle D, W, R, v \rangle$, allerdings wird $v$ verändert, so
+    dass:
     \begin{itemize}[<+->]
-    \item $v(w) \subseteq D$
+    \item Wenn $w \in W$, dann $v(w) \subseteq D$.
+      \begin{itemize}[<+->]
+      \item D.h. der Gegenstandsbereich kann von Welt zu Welt
+        variieren.
+      \end{itemize}
+    \item Wenn $a$ Konstante, dann $v(a) \in D$.
+      \begin{itemize}[<+->]
+      \item Das bleibt gleich: Eine Konstante bezeichnet immer
+        dasselbe Objekt.
+      \end{itemize}
+    \item Wenn $P$ n-stelliges Prädikatsymbol, dann $v_w(P) \in D^n$.
+      \begin{itemize}[<+->]
+      \item Und nicht $v_w(P) \in v(w)^n$. Dadurch erlauben wir, dass
+        Dinge auch Prädikate an einer Welt erfüllen können, ohne dass
+        sie dort existieren!
+      \end{itemize}
     \end{itemize}
-  \item Wahrheit in einer Interpretation genau wie vorher, nur:
-    \begin{itemize}[<+->]
-    \item $v_w(\forall x A) = 1$ gdw. jedes $\partial \in v(w)$ Formel
-      $A$ erfüllt.
-    \item $v_w(\exists x A) = 1$ gdw. mindestens ein
-      $\partial \in v(w)$ Formel $A$ erfüllt.
-    \end{itemize}
-  \item D.h. an unterschiedlichen Welten können Quantoren über
-    unterschiedliche Teilmengen von $D$ quantifizieren ($\implies$
-    aktualistische Quantifizierung).
-  \item Jede Contant Domain Interpretation ist eine spezielle Variable
-    Domain Interpretation mit $v(w_0) = v(w_1) = ...$.
   \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Variable Domain}
+
+Wahrheit in einer Interpretation genau wie vorher, nur:
+  \begin{itemize}[<+->]
+  \item $v_w(\forall x A) = 1$ gdw. jedes $\partial \in \mathbf{v(w)}$
+    Formel $A$ erfüllt.
+  \item $v_w(\exists x A) = 1$ gdw. mindestens ein
+    $\partial \in \mathbf{v(w)}$ Formel $A$ erfüllt.
+  
+\item D.h. an unterschiedlichen Welten können Quantoren über
+  unterschiedliche Teilmengen von $D$ quantifizieren ($\implies$
+  aktualistische Quantifizierung).
+\item Jede Contant Domain Interpretation ist eine spezielle Variable
+  Domain Interpretation mit $v(w_0) = v(w_1) = ...$.
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Eine mögliche Lösung: Variable Domain}
+\begin{frame}{Variable Domain}
   Welche Auswirkungen hat das?
   \begin{itemize}[<+->]
   \item `Problem' der klassischen Prädikatenlogik (und der Constant
@@ -746,52 +767,66 @@
     \end{itemize}
   \end{itemize}
 
-\pause
-\begin{center}
-      \includegraphics[height=2cm]{happydog.png}
-\end{center}
+  \pause
+  \begin{center}
+    \includegraphics[height=2cm]{happydog.png}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Ein Argument gegen Existenz eines Objekts an mehreren Welten}
-Also alles gut? Enter Problem der \emph{transworld identity}.
-\pause
-\begin{itemize}[<+->]
-\item Wie kann überhaupt ein und dasselbe Objekt in verschiedenen Welten existieren? Es hat ja dann in einer Welt Eigenschaften, die es in einer anderen Welt nicht hat, also simultan eine Eigenschaft $P$ und nicht die Eigenschaft $P$! Das kann für \emph{alle} Eigenschaften gelten, die es hat! Kann es dann \emph{dasselbe} Objekt sein?
+  Also alles gut? Enter Problem der \emph{transworld identity}.
+  \pause
+  \begin{itemize}[<+->]
+  \item Wie kann überhaupt ein und dasselbe Objekt in verschiedenen
+    Welten existieren? Es hat ja dann in einer Welt Eigenschaften, die
+    es in einer anderen Welt nicht hat, also simultan eine Eigenschaft
+    $P$ und nicht die Eigenschaft $P$! Das kann für \emph{alle}
+    Eigenschaften gelten, die es hat! Kann es dann \emph{dasselbe}
+    Objekt sein?
 
-\end{itemize}
+  \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Lewisian Counterparts}
 
-\begin{itemize}[<+->]
-\item Extreme Version: David Lewis' Counterparts-Theorie. Ein Ding existiert in nur einer Welt, und steht mit maximal ähnlichen Dingen an anderen Welten in einer Counterpart-Relation. Modalität wird dann zusätzlich über die Counterpart-Relation erzeugt. Die muss jedoch nicht symmetrisch oder transitiv sein!
-\item Resultierende Logik um einiges schwächer, z.B. gilt selbst in S5 dann nicht mehr $\Box p \to \Box\Box p$ u.a.
-\end{itemize}
+  \begin{itemize}[<+->]
+  \item Extreme Version: David Lewis' Counterparts-Theorie. Ein Ding
+    existiert in nur einer Welt, und steht mit maximal ähnlichen
+    Dingen an anderen Welten in einer Counterpart-Relation. Modalität
+    wird dann zusätzlich über die Counterpart-Relation erzeugt. Die
+    muss jedoch nicht symmetrisch oder transitiv sein!
+  \item Resultierende Logik um einiges schwächer, z.B. gilt selbst in
+    S5 dann nicht mehr $\Box p \to \Box\Box p$ u.a.
+  \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Alles halb so wild..}
 
-Ein Ding hat eine Eigenschaft immer relativ zu einer Welt, so dass..
-\begin{itemize}[<+->]
-\item Donald Trump in dieser Welt Republikaner ist,
-\item ... aber an einer anderen Welt stattdessen Demokrat.
-\item Dann hat er in dieser Welt die Eigenschaft, potentiell ein Demokrat zu sein.
-\item Kein Widerspruch!
-\item Stattdessen vielleicht epistemisches Problem? Wie können wir wissen, welches Objekt in einer anderen Welt dasselbe ist wie in dieser, wenn die Eigenschaften alle anders sind?
-\end{itemize}
+  Ein Ding hat eine Eigenschaft immer relativ zu einer Welt, so dass..
+  \begin{itemize}[<+->]
+  \item Donald Trump in dieser Welt Republikaner ist,
+  \item ... aber an einer anderen Welt stattdessen Demokrat.
+  \item Dann hat er in dieser Welt die Eigenschaft, potentiell ein
+    Demokrat zu sein.
+  \item Kein Widerspruch!
+  \item Stattdessen vielleicht epistemisches Problem? Wie können wir
+    wissen, welches Objekt in einer anderen Welt dasselbe ist wie in
+    dieser, wenn die Eigenschaften alle anders sind?
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Weitere Probleme}
 
-Vergleiche:
-\begin{itemize}[<+->]
-\item Notwendigerweise ist das Verhältnis von Umfang und Durchmesser eines Kreises irrational.
-\item Notwendigerweise ist die Anzahl der Planeten gerade.
-\item Sind diese Sätze wahr/falsch?
-\item Rigid/Non-Rigid Designators
-\end{itemize}
+  Vergleiche:
+  \begin{itemize}[<+->]
+  \item Notwendigerweise ist das Verhältnis von Umfang und Durchmesser
+    eines Kreises irrational.
+  \item Notwendigerweise ist die Anzahl der Planeten gerade.
+  \item Sind diese Sätze wahr/falsch?
+  \item Rigid/Non-Rigid Designators
+  \end{itemize}
 
 
 \end{frame}
