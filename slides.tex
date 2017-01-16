@@ -469,7 +469,7 @@
 
 \begin{frame}{Tableaux: Beispiele}
 
-  $K$ ist eine Logik ohne Beschränkung der Relation $R$ der
+  $K$ ist eine Constant Domain Logik ohne Beschränkung der Relation $R$ der
   Interpretationen.
   \begin{enumerate}[<+->]
   \item $\vdash_K \forall x \Box Px \to \Box \forall x Px$?
@@ -634,7 +634,12 @@
     wollten wir ja gerade nicht ausschließen!
   \item Es scheint: Unser intuitives Verständnis von Notwendigkeit
     wird hier nicht adäquat mit dem formalen Modell eingefangen.
+   
   \end{itemize}
+  \pause
+  \begin{center}
+    \includegraphics[height=3cm]{cryingdog.png}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Barcan Formula: Responses}
@@ -659,9 +664,14 @@
     falsch. Bisher $\exists x A$ als ``es existiert ein x, sodass A''
     gelesen. Stattdessen: Quantoren quantifizieren nicht über alle
     existenten Dinge, sondern über alle möglichen Dinge ($\implies$
-    possibilistische Quantifizierung). BF klingt dann intuitiv plausibel, weil die Quantoren so gelesen werden, dass sie alle irgendwo möglichen Dinge miteinschließen.
+    possibilistische Quantifizierung). BF klingt dann intuitiv
+    plausibel, weil die Quantoren so gelesen werden, dass sie alle
+    irgendwo möglichen Dinge miteinschließen.
     \begin{itemize}[<+->]
-    \item Ja gz, das ist 1. derbe kontraintuitiv und against common sense und praxis, das man sehr guten independent reason braucht dafür, man stipuliert die Intuition einfach als falsch und 2. Wie willst Du dann Existenz auszeichnen? HÄ?
+    \item Ja gz, das ist 1. derbe kontraintuitiv und against common
+      sense und praxis, das man sehr guten independent reason braucht
+      dafür, man stipuliert die Intuition einfach als falsch und
+      2. Wie willst Du dann Existenz auszeichnen? HÄ?
     \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -671,18 +681,48 @@
 \end{frame}
 
 \begin{frame}{Eine mögliche Lösung: Variable Domain}
-  nur kurz anreißen was vorgeht
+  To the Rescue: Gegenstandsbereich der Quantifizierung variiert je
+  Welt.
+  \begin{itemize}[<+->]
+  \item Was heißt das?
+  \item Semantik: Interpretation $I$ wie vorher 4-Tupel $\langle D, W, R, v \rangle$, nur $v$ wird erweitert so dass 
+    \begin{itemize}[<+->]
+    \item $v(w) \subseteq D$
+    \end{itemize}
+  \item Wahrheit in einer Interpretation genau wie vorher, nur:
+    \begin{itemize}[<+->]
+    \item $v_w(\forall x A) = 1$ gdw. jedes $\partial \in v(w)$ Formel $A$ erfüllt.
+    \item $v_w(\exists x A) = 1$ gdw. mindestens ein $\partial \in v(w)$ Formel $A$ erfüllt.
+    \end{itemize}
+  \item D.h. an unterschiedlichen Welten können Quantoren über unterschiedliche Teilmengen von $D$ quantifizieren.
+  \item Jede Contant Domain Interpretation ist eine spezielle Variable Domain Interpretation mit $v(w_0) = v(w_1) = ...$.
+  \end{itemize}
+
 \end{frame}
 
-\begin{frame}{... und mit Existenzprädikat}
-  nur kurz anreißen
+\begin{frame}{Eine mögliche Lösung: Variable Domain}
+  Welche Auswirkungen hat das?
+  \begin{itemize}[<+->]
+  \item `Problem' der klassischen Prädikatenlogik (und der Constant Domain): $v(Pa \to \exists x Px) = 1$ Tautologie.
+  \item Pegasus ist ein fliegendes Pferd. Also gibt es fliegende Pferde.
+  \item In der Variable Domain kein Problem:
+    \begin{itemize}[<+->]
+    \item $v_w(Pa) = 1$ gdw. $v(a) \in v_w(P)$.
+    \item Aber $v_w(\exists x Px) = 1$ gdw. mindestens ein Ding $\partial$ \emph{zwei} Bedingungen erfüllt:
+      \begin{itemize}
+      \item $\partial \in v_w(P)$ und
+      \item $\partial \in v(w)$. (Zur Erinnerung: $v(w) \subseteq D$)
+      \end{itemize}
+    \end{itemize}
+  \item $Pa$ kann also gelten an $w$, während $\exists x Px$ an $w$ nicht gilt!
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Ein Argument gegen Existenz eines Objekts an mehreren Welten}
-  Wie ist Existenz über Welten überhauptmöglich?
-  Z.B. mit Lewisien Counterparts
-- Refutation durch Welt-relative Eigenschaften eines Objekts.
-- Aber was macht ein Objekt dann dasselbe über verschiedene Welten? Gibt es essentielle Eigenschaften?
+  Wie ist Existenz über Welten überhauptmöglich?  Z.B. mit Lewisien
+  Counterparts - Refutation durch Welt-relative Eigenschaften eines
+  Objekts.  - Aber was macht ein Objekt dann dasselbe über
+  verschiedene Welten? Gibt es essentielle Eigenschaften?
 \end{frame}
 
 \begin{frame}{Die Zahl der Planeten ist Notwendig 8!}
