@@ -1,3 +1,4 @@
+
 \documentclass[12pt]{beamer}
 \usepackage[utf8]{inputenc}
 \usecolortheme{default}
@@ -469,8 +470,8 @@
 
 \begin{frame}{Tableaux: Beispiele}
 
-  $K$ ist eine Constant Domain Logik ohne Beschränkung der Relation $R$ der
-  Interpretationen.
+  $K$ ist eine Constant Domain Logik ohne Beschränkung der Relation
+  $R$ der Interpretationen.
   \begin{enumerate}[<+->]
   \item $\vdash_K \forall x \Box Px \to \Box \forall x Px$?
   \item $\vdash_K \Box \forall x Px \to \forall x \Box Px$?
@@ -685,17 +686,22 @@
   Welt.
   \begin{itemize}[<+->]
   \item Was heißt das?
-  \item Semantik: Interpretation $I$ wie vorher 4-Tupel $\langle D, W, R, v \rangle$, nur $v$ wird erweitert so dass 
+  \item Semantik: Interpretation $I$ wie vorher 4-Tupel
+    $\langle D, W, R, v \rangle$, nur $v$ wird erweitert so dass
     \begin{itemize}[<+->]
     \item $v(w) \subseteq D$
     \end{itemize}
   \item Wahrheit in einer Interpretation genau wie vorher, nur:
     \begin{itemize}[<+->]
-    \item $v_w(\forall x A) = 1$ gdw. jedes $\partial \in v(w)$ Formel $A$ erfüllt.
-    \item $v_w(\exists x A) = 1$ gdw. mindestens ein $\partial \in v(w)$ Formel $A$ erfüllt.
+    \item $v_w(\forall x A) = 1$ gdw. jedes $\partial \in v(w)$ Formel
+      $A$ erfüllt.
+    \item $v_w(\exists x A) = 1$ gdw. mindestens ein
+      $\partial \in v(w)$ Formel $A$ erfüllt.
     \end{itemize}
-  \item D.h. an unterschiedlichen Welten können Quantoren über unterschiedliche Teilmengen von $D$ quantifizieren.
-  \item Jede Contant Domain Interpretation ist eine spezielle Variable Domain Interpretation mit $v(w_0) = v(w_1) = ...$.
+  \item D.h. an unterschiedlichen Welten können Quantoren über
+    unterschiedliche Teilmengen von $D$ quantifizieren.
+  \item Jede Contant Domain Interpretation ist eine spezielle Variable
+    Domain Interpretation mit $v(w_0) = v(w_1) = ...$.
   \end{itemize}
 
 \end{frame}
@@ -703,20 +709,46 @@
 \begin{frame}{Eine mögliche Lösung: Variable Domain}
   Welche Auswirkungen hat das?
   \begin{itemize}[<+->]
-  \item `Problem' der klassischen Prädikatenlogik (und der Constant Domain): $v(Pa \to \exists x Px) = 1$ Tautologie.
-  \item Pegasus ist ein fliegendes Pferd. Also gibt es fliegende Pferde.
+  \item `Problem' der klassischen Prädikatenlogik (und der Constant
+    Domain): $v(Pa \to \exists x Px) = 1$ Tautologie.
+  \item Pegasus ist ein fliegendes Pferd. Also gibt es fliegende
+    Pferde.
   \item In der Variable Domain kein Problem:
     \begin{itemize}[<+->]
     \item $v_w(Pa) = 1$ gdw. $v(a) \in v_w(P)$.
-    \item Aber $v_w(\exists x Px) = 1$ gdw. mindestens ein Ding $\partial$ \emph{zwei} Bedingungen erfüllt:
+    \item Aber $v_w(\exists x Px) = 1$ gdw. mindestens ein Ding
+      $\partial$ \textbf{zwei} Bedingungen erfüllt:
       \begin{itemize}
       \item $\partial \in v_w(P)$ und
       \item $\partial \in v(w)$. (Zur Erinnerung: $v(w) \subseteq D$)
       \end{itemize}
     \end{itemize}
-  \item $Pa$ kann also gelten an $w$, während $\exists x Px$ an $w$ nicht gilt!
+  \item $Pa$ kann also gelten an $w$, während $\exists x Px$ an $w$
+    nicht gilt!
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Variable Domain: Barcan Formula}
+  Wie löst das unser Problem mit der Barcan Formula?
+  \begin{itemize}[<+->]
+  \item \begin{center} BF*:
+      $\Diamond \exists x A \to \exists x \Diamond A$
+    \end{center}
+  \item BF* gilt in Variable Domain nicht mehr! Intuitive Lesart: Wenn
+    es an einer Welt der Fall ist, dass es etwas gibt, das $Px$
+    erfüllt, dann gibt es etwas an dieser Welt, das an einer anderen
+    Welt $Px$ erfüllt.
+  \item Gegenbeispiel. Interpretation $I$ mit
+    \begin{itemize}[<+->]
+    \item $D = \{\partial_a, \partial_b\}$, $W = \{w_0, w_1\}$, $R = \{\langle w_0, w_1 \rangle\}$, $v$ eine Fkt. sodass
+      \begin{itemize}[<+->]
+      \item $v_0(P) = \{\}$, $v_1(P) = \{\partial_b\}$,
+      \item $v(w_0) = \{\partial_a\}$, $v(w_1) = \{\partial_b\}$.
+      \end{itemize}
+    \end{itemize}
+
+\end{itemize}
+  \end{frame}
 
 \begin{frame}{Ein Argument gegen Existenz eines Objekts an mehreren Welten}
   Wie ist Existenz über Welten überhauptmöglich?  Z.B. mit Lewisien
